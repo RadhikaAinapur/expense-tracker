@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    <h1 id="e1">EXPENSE TRACKER </h1>
+    <br>
+    <hr>
+    <hr>
+    <br>
+    <form action="" name="expense">
+        <p id="e1">Item No: <input type="number" name="item_no">
+            Item Name: <input type="text" name="item_name">
+            Cost: <input type="number" name="cost">
+        </p>
+        <br>
+        <br>
+        <input type="button" value=" Add Item" onclick="additems()">
+        <br>
+        <br>
+        <table id="t1" border="1">
+            <tr>
+                <th>item no:</th>
+                <th>item name:</th>
+                <th id="c1">cost:</th>
+
+
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>apple</td>
+                <td>2000</td>
+            </tr>
+
+            <tbody>
+
+            </tbody>
+        </table>
+        <br><br>
+
+        <h1 id="e1">TOTAL EXPENSE:<input type="button" value="ADD" onclick="addelements()" name="te1"></h1>
+        <h3 id="e1">Rs:<p id="es11"><input type="number" name="rs1"></p>
+        </h3>
+    </form>
+    <script>
+        function additems() {
+            var item_no = document.expense.item_no.value;
+            var item_name = document.expense.item_name.value;
+            var cost = document.expense.cost.value;
+
+            var tr = document.createElement("tr");
+
+            var td1 = tr.appendChild(document.createElement("td"));
+            var td2 = tr.appendChild(document.createElement("td"));
+            var td3 = tr.appendChild(document.createElement("td"));
+
+            td1.innerHTML = item_no;
+            td2.innerHTML = item_name;
+            td3.innerHTML = cost;
+
+            document.getElementById("t1").appendChild(tr);
+        }
+
+        function addelements() {
+            var t1 = document.getElementById("t1"), sumval = 0;
+            for (var i = 1; i < t1.rows.length; i++) {
+                sumval = sumval + parseInt(t1.rows[i].cells[2].innerHTML);
+            }
+            //previous failed methods
+            // var sum = 0;
+            //var table=document.getElementById("c1");
+            //sum=table;
+            //for(var i=0;i<=item_no;i++){
+            //sum=sum+table;
+            //}
+            //var a1=document.expense.cost.value;
+            //var d1=document.expense.item_no.value;
+            //a1=item_no.document.expense.item_n0.value+a1.document.expense.item_n0(+1).value
+            //var exp11 = sum + a1;
+            document.getElementById("es11").innerHTML = sumval;
+        }
+
+
+    </script>
+</body>
+
+</html>
